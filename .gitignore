@@ -1,7 +1,7 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
-/dist
+dist/
 /tmp
 /out-tsc
 /bazel-out
@@ -40,3 +40,13 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Angular CLI local environment files
+.env
+.env.*.local
+
+# Cache do npm (às vezes aparece com build quebrado)
+.npm/
+
+# Cache do Angular CLI (opcional)
+.angular/
