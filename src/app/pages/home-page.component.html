@@ -1,0 +1,31 @@
+<h1>📋 Sistema de Vistorias</h1>
+
+<nav>
+  <ul>
+    <li><a routerLink="/imoveis-disponiveis">📂 Imóveis para Vistoria</a></li>
+    <li><a routerLink="/imoveis-indisponiveis">🕘 Imóveis Indisponíveis / Histórico</a></li>
+    <li><a routerLink="/vistoria/1">📝 Vistorias Aguardando Aprovação</a></li>
+    <li><a href="#">⚙️ Opções</a></li>
+  </ul>
+</nav>
+
+<hr />
+
+<h2>📌 Últimos Imóveis Disponíveis</h2>
+
+<div *ngIf="ultimosImoveis.length === 0">
+  <p>Nenhum imóvel disponível no momento.</p>
+</div>
+
+<div *ngFor="let imovel of ultimosImoveis" style="margin-bottom: 20px; border: 1px solid #ccc; padding: 10px; border-radius: 8px;">
+  <div style="display: flex; align-items: center;">
+    <img *ngIf="getImagemPrincipal(imovel)" [src]="getImagemPrincipal(imovel)" alt="Foto principal" width="175" height="145" style="object-fit: cover; margin-right: 15px;">
+    
+    <div>
+      <h3>{{ imovel.tituloImovel }}</h3>
+      <p><strong>Tipo Imóvel:</strong> {{ imovel.tipoImovel }}</p>
+      <p><strong>Endereço:</strong> {{ imovel.endereco }}, {{ imovel.numero }} - {{ imovel.bairro }}</p>
+      <p><strong>Cidade:</strong> {{ imovel.cidade }} / {{ imovel.estado }} - <strong>CEP:</strong> {{imovel.cep }}</p>
+      <p><strong>Valor de Venda:</strong> R$ {{ imovel.precoVenda | number:'1.2-2' }}</p>
+    </div>
+  </div>
